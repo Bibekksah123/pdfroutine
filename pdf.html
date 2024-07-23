@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="item">cickme</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script>
+    let item=document.querySelector('#item');
+    item.addEventListener("click",()=>{
+      const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(18);
+            doc.text("Monthly Routine", 105, 10, null, null, 'center');
+
+            // Weekly Routine
+            doc.setFontSize(14);
+            doc.text("Weekly Routine (Tuesday to Saturday)", 10, 20);
+            doc.setFontSize(12);
+            doc.text(`Morning
+5:00 AM - 5:30 AM: Wake up and morning hygiene routine
+5:30 AM - 6:00 AM: Light exercise
+
+Stretching: Full body stretch (5 minutes)
+Yoga: Basic yoga poses (10 minutes)
+Walking or light jogging: (15 minutes)
+6:00 AM - 2:00 PM: College classes (include short breaks if possible)
+Afternoon
+2:00 PM - 2:30 PM: Lunch break
+2:30 PM - 3:00 PM: Relaxation time (listen to music, take a short nap, etc.)
+3:00 PM - 4:00 PM: Practice coding for the project
+4:00 PM - 4:30 PM: Short break (snack and unwind)
+
+Evening
+4:30 PM - 5:30 PM: Homework and assignments
+5:30 PM - 6:00 PM: Learn new coding ideas and concepts
+6:00 PM - 6:30 PM: Intensive exercise
+
+Cardio: Running, cycling, or swimming (20 minutes)
+Strength training: Bodyweight exercises (10 minutes)
+Push-ups
+Squats
+Planks
+Cool down: Light stretching (5 minutes)
+6:30 PM - 7:00 PM: Cool down and shower
+Night
+7:00 PM - 7:30 PM: Dinner
+7:30 PM - 8:30 PM: Free time for enjoyment (hobbies, socializing, etc.)
+8:30 PM - 9:30 PM: Review and revise the day's coding work and make plans for the next day
+9:30 PM - 10:00 PM: Relaxation time (reading, light entertainment)
+10:00 PM: Bedtime
+`, 10, 30);
+doc.save("Monthly_Routine.pdf");
+    })
+
+
+
+  </script>
+</body>
+</html>
